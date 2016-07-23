@@ -17,7 +17,7 @@ pkg         = require './package.json'
 _s          = require 'underscore.string'
 prefix      = require 'gulp-autoprefixer'
 strip       = require 'gulp-strip-css-comments'
-browserSync = require 'browser-sync'
+browserSync = require('browser-sync').create()
 reload      = browserSync.reload
 
 PORT =
@@ -51,6 +51,8 @@ src =
   css      :
     main   : 'assets/css/' + dist.name + '.css'
     vendor : []
+
+  templates  : '**/*.hbs'
 
 banner = [ "/**"
            " * <%= pkg.name %> - <%= pkg.description %>"
@@ -100,7 +102,7 @@ gulp.task 'css', ->
 
 gulp.task 'server', ->
   browserSync.init
-    proxy: "http://127.0.0.1:#{PORT.GHOST}"
+    proxy: "http://localhost:#{PORT.GHOST}"
     port: PORT.BROWSERSYNC
     files: ['assets/**/*.*']
   return
@@ -110,6 +112,7 @@ gulp.task 'build', ['css', 'js']
 
 gulp.task 'default', ->
   gulp.start ['build', 'server']
+  gulp.watch( src.templates ).on("change", reload)
   gulp.watch src.sass.files, ['css', reload]
   gulp.watch src.js.common.main, ['js-common', reload]
   gulp.watch src.js.post, ['js-post', reload]

@@ -1,5 +1,11 @@
 /* COLORS */
 
+$palette1              : #2B2E30;
+$palette2              : #6C6E70;
+$palette3              : #0AA0D8;
+$palette4              : #0C98CF;
+$palette5              : #FFF568;
+
 $gray-darkest          : #333;
 $gray-darker           : #666;
 $gray-dark             : #999;
@@ -14,17 +20,17 @@ $cyan                  : #006064;
 $red                   : #e74c3c;
 $purple                : #493252;
 $slate                 : #3d4260;
-$yellow                : #FFC107;
+$yellow                : $palette5;
 
-$primary-color         : lighten($red, 5%);
-$secondary-color       : $yellow;
+$primary-color         : $palette4;
+$secondary-color       : $palette5;
 
 $cover-secondary       : rgba(#5f2c82, .1);
 $cover-primary         : rgba(#49a09d, .2);
 
 $link-color            : $gray-darkest;
 $hover-color           : $primary-color;
-$mark-color            : #feda9e;
+$mark-color            : $yellow;
 
 $divider-color         : rgba(255, 255, 255, .14);
 

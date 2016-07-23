@@ -20,7 +20,8 @@
       </section>
     </main>
     {{ghost_foot}}
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script>jQuery = Zepto</script>
     <script src="{{asset "js/uno-zen.common.js"}}" type="text/javascript" charset="utf-8"></script>
     {{#is "post, page"}}
       <script src="{{asset "js/uno-zen.post.js"}}" type="text/javascript" charset="utf-8"></script>
